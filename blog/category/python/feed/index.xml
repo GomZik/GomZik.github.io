@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+     >
+  <channel>
+    <title>По(ш)кодим?</title>
+    <link>http://gomzik.github.io/blog</link>
+    <description>Блог Алексея Гомзы aka GomZik</description>
+    <pubDate>Mon, 21 Jul 2014 22:38:12 GMT</pubDate>
+    <generator>Blogofile</generator>
+    <sy:updatePeriod>hourly</sy:updatePeriod>
+    <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>Hello, world!</title>
+      <link>http://gomzik.github.io/blog/2014/07/22/hello,-world!</link>
+      <pubDate>Tue, 22 Jul 2014 01:29:00 FET</pubDate>
+      <category><![CDATA[blog]]></category>
+      <category><![CDATA[python]]></category>
+      <category><![CDATA[hello]]></category>
+      <guid isPermaLink="true">http://gomzik.github.io/blog/2014/07/22/hello,-world!</guid>
+      <description>Hello, world!</description>
+      <content:encoded><![CDATA[<div class="document">
+<p>Всем привет! Стартую свой блог на основе github pages. Собираюсь писать сюда посты, связанные с программированием. Планирую писать сюда про вещи, с которыми пытаюсь разобраться прямо здесь и сейчас. Может быть кому-то будет полезно.</p>
+<p>Сам я являюсь web-разработчиком, пишу приемущественно на Python. Интересуюсь гейм-девом. Профиль на github у меня, к сожалению, на текущий момент весьма унылый, однако я думаю, что смогу это исправить.</p>
+<p>Для блога был использован генератор статических страниц <a class="reference external" href="http://blogofile.com/">blogofile</a>, т.к. python мне как-то ближе.</p>
+<p>Надеюсь все, что я тут напишу в последствии, будет кому-то полезным.</p>
+<p>Стили для данного блога полностью еще не доделаны, но постепенно буду допиливать.</p>
+</div>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed
+  xmlns="http://www.w3.org/2005/Atom"
+  xmlns:thr="http://purl.org/syndication/thread/1.0"
+  xml:lang="en"
+   >
+  <title type="text">По(ш)кодим?</title>
+  <subtitle type="text">Блог Алексея Гомзы aka GomZik</subtitle>
+
+  <updated>2014-07-21T22:38:12Z</updated>
+  <generator uri="http://blogofile.com/">Blogofile</generator>
+
+  <link rel="alternate" type="text/html" href="http://gomzik.github.io/blog" />
+  <id>http://gomzik.github.io/blog/feed/atom/</id>
+  <link rel="self" type="application/atom+xml" href="http://gomzik.github.io/blog/feed/atom/" />
+  <entry>
+    <author>
+      <name></name>
+      <uri>http://gomzik.github.io/blog</uri>
+    </author>
+    <title type="html"><![CDATA[Hello, world!]]></title>
+    <link rel="alternate" type="text/html" href="http://gomzik.github.io/blog/2014/07/22/hello,-world!" />
+    <id>http://gomzik.github.io/blog/2014/07/22/hello,-world!</id>
+    <updated>2014-07-22T01:29:00Z</updated>
+    <published>2014-07-22T01:29:00Z</published>
+    <category scheme="http://gomzik.github.io/blog" term="blog" />
+    <category scheme="http://gomzik.github.io/blog" term="python" />
+    <category scheme="http://gomzik.github.io/blog" term="hello" />
+    <summary type="html"><![CDATA[Hello, world!]]></summary>
+    <content type="html" xml:base="http://gomzik.github.io/blog/2014/07/22/hello,-world!"><![CDATA[<div class="document">
+<p>Всем привет! Стартую свой блог на основе github pages. Собираюсь писать сюда посты, связанные с программированием. Планирую писать сюда про вещи, с которыми пытаюсь разобраться прямо здесь и сейчас. Может быть кому-то будет полезно.</p>
+<p>Сам я являюсь web-разработчиком, пишу приемущественно на Python. Интересуюсь гейм-девом. Профиль на github у меня, к сожалению, на текущий момент весьма унылый, однако я думаю, что смогу это исправить.</p>
+<p>Для блога был использован генератор статических страниц <a class="reference external" href="http://blogofile.com/">blogofile</a>, т.к. python мне как-то ближе.</p>
+<p>Надеюсь все, что я тут напишу в последствии, будет кому-то полезным.</p>
+<p>Стили для данного блога полностью еще не доделаны, но постепенно буду допиливать.</p>
+</div>
+]]></content>
+  </entry>
+</feed>
