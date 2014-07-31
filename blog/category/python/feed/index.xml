@@ -10,10 +10,156 @@
     <title>По(ш)кодим?</title>
     <link>http://gomzik.github.io/blog</link>
     <description>Блог Алексея Гомзы aka GomZik</description>
-    <pubDate>Mon, 21 Jul 2014 22:38:12 GMT</pubDate>
+    <pubDate>Thu, 31 Jul 2014 19:11:41 GMT</pubDate>
     <generator>Blogofile</generator>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
+    <item>
+      <title>Пробуем PySDL2 часть 1</title>
+      <link>http://gomzik.github.io/blog/2014/07/24/пробуем-pysdl2-часть-1</link>
+      <pubDate>Thu, 24 Jul 2014 22:10:00 FET</pubDate>
+      <category><![CDATA[python]]></category>
+      <category><![CDATA[PySDL2]]></category>
+      <category><![CDATA[гейм-дев]]></category>
+      <category><![CDATA[pygame]]></category>
+      <guid isPermaLink="true">http://gomzik.github.io/blog/2014/07/24/пробуем-pysdl2-часть-1</guid>
+      <description>Пробуем PySDL2 часть 1</description>
+      <content:encoded><![CDATA[<div class="document">
+<p>В очередной раз зачесались руки поближе познакомиться с гейм-девом. Открыл <a class="reference external" href="http://pygame.org/">сайт pygame</a> и увидел новость про то, что <a class="reference external" href="http://http://pysdl2.readthedocs.org/en/latest/">PySDL 0.9.3</a> released. Стало любопытно, что за зверь такой.</p>
+<p>Поискав в интернете, не нашел никаких статей на русском, на английском тоже как-то не особо много. В общем, кроме как читать документацию, ничего не остается.</p>
+<p>К сожалению, мой английский достаточно слабый, поэтому, если я что-то не так понял из документации - поправьте.</p>
+<p>PySDL2 - обертка над библиотекой SDL2. В отличии от PySDL - не имеет лицензионных ограничений.</p>
+<p>Итак, установка. Конечно же у вас в системе должена быть библиотека SDL. Лично я сам пакет поставил system wide, но я думаю, что можно поставить и в virtual env.</p>
+<pre class="code sh literal-block">
+<span class="name variable">$ </span>sudo pip install PySDL2
+</pre>
+<p>Ну и как всегда, pip не подвел! Отлично установил пакет в систему, можем пользоваться.</p>
+<p>А вот как пользоваться - вопрос другой. Как я уже говорил, на просторах интернета не много информации, хотя документация вроде не плохая. Только вот английский знать надо.</p>
+<p>Думаю резонно сначала прогнать те самые два туториала, которые есть в доках. Мало ли кому русскоязычному пригодится.</p>
+<p>Итак, открываем любимый редактор, создаем новый файл и поехали.</p>
+<pre class="code python literal-block">
+<span class="comment"># -*- coding: utf-8 -*-</span>
+
+<span class="keyword namespace">import</span> <span class="name namespace">sdl2.ext</span>
+
+<span class="name">sdl2</span><span class="operator">.</span><span class="name">ext</span><span class="operator">.</span><span class="name">init</span><span class="punctuation">()</span>
+<span class="name">window</span> <span class="operator">=</span> <span class="name">sdl2</span><span class="operator">.</span><span class="name">ext</span><span class="operator">.</span><span class="name">Window</span><span class="punctuation">(</span><span class="literal string">'Hello, world!'</span><span class="punctuation">,</span> <span class="name">size</span><span class="operator">=</span><span class="punctuation">(</span><span class="literal number integer">640</span><span class="punctuation">,</span> <span class="literal number integer">480</span><span class="punctuation">))</span>
+<span class="name">window</span><span class="operator">.</span><span class="name">show</span><span class="punctuation">()</span>
+
+<span class="name">processor</span> <span class="operator">=</span> <span class="name">sdl2</span><span class="operator">.</span><span class="name">ext</span><span class="operator">.</span><span class="name">TestEventProcessor</span><span class="punctuation">()</span>
+<span class="name">processor</span><span class="operator">.</span><span class="name">run</span><span class="punctuation">(</span><span class="name">window</span><span class="punctuation">)</span>
+
+<span class="name">sdl2</span><span class="operator">.</span><span class="name">ext</span><span class="operator">.</span><span class="name">quit</span><span class="punctuation">()</span>
+</pre>
+<p>И попробуем запустить.</p>
+<pre class="code sh literal-block">
+<span class="name variable">$ </span>python main.py
+</pre>
+<p>И перед нами появляется окно. В нём правда осталось то, что было у вас на экране до этого, но это уже полноценное окно, которое отреагирует, если его попробовать закрыть.</p>
+<p>Давайте теперь попробуем разобраться, что тут у нас происходит.</p>
+<pre class="code python literal-block">
+<span class="keyword namespace">import</span> <span class="name namespace">sdl2.ext</span>
+</pre>
+<p>Тут должно быть понятно. Импортируем свежепоставленный пакет</p>
+<pre class="code python literal-block">
+<span class="name">sdl2</span><span class="operator">.</span><span class="name">ext</span><span class="operator">.</span><span class="name">init</span><span class="punctuation">()</span>
+</pre>
+<p>Инициализируем SDL. Если кто-то пробовал pygame, то вспомнит:</p>
+<pre class="code python literal-block">
+<span class="name">pygame</span><span class="operator">.</span><span class="name">init</span><span class="punctuation">()</span>
+</pre>
+<p>Вот это и есть тоже самое. Идем дальше:</p>
+<pre class="code python literal-block">
+<span class="name">window</span> <span class="operator">=</span> <span class="name">sdl2</span><span class="operator">.</span><span class="name">ext</span><span class="operator">.</span><span class="name">Window</span><span class="punctuation">(</span><span class="literal string">'Hello, world!'</span><span class="punctuation">,</span> <span class="name">size</span><span class="operator">=</span><span class="punctuation">(</span><span class="literal number integer">640</span><span class="punctuation">,</span> <span class="literal number integer">480</span><span class="punctuation">))</span>
+<span class="name">window</span><span class="operator">.</span><span class="name">show</span><span class="punctuation">()</span>
+</pre>
+<p>В общем и целом должно быть понятно и по коду. Создаем окно SDL размером 640х480 пикселей и заголовком 'Hello, world!' и затем показываем его.</p>
+<p>В отличие от pygame, PySDL2 имеет объектно-ориентированное API, чего мне очень не хватало в pygame. Хотя это было и не критично, это не единственная крутая фича. Но об этом позже.</p>
+<p>Разберем две последние строки:</p>
+<pre class="code python literal-block">
+<span class="name">processor</span> <span class="operator">=</span> <span class="name">sdl2</span><span class="operator">.</span><span class="name">ext</span><span class="operator">.</span><span class="name">TestEventProcessor</span><span class="punctuation">()</span>
+<span class="name">processor</span><span class="operator">.</span><span class="name">run</span><span class="punctuation">(</span><span class="name">window</span><span class="punctuation">)</span>
+</pre>
+<p>Вот тут пока не ясная магия. Однако ничего сверхъествественного тут нет. Просто разработчики PySDL2 заботливо положили в свой пакет класс, который обробатывает всего один ивент: <tt class="docutils literal">SDL_QUIT</tt>. Т.е. если бы мы написали:</p>
+<pre class="code python literal-block">
+<span class="name">running</span> <span class="operator">=</span> <span class="name builtin pseudo">True</span>
+<span class="keyword">while</span> <span class="name">running</span><span class="punctuation">:</span>
+    <span class="name">events</span> <span class="operator">=</span> <span class="name">sdl2</span><span class="operator">.</span><span class="name">ext</span><span class="operator">.</span><span class="name">get_events</span><span class="punctuation">()</span>
+    <span class="keyword">for</span> <span class="name">event</span> <span class="operator word">in</span> <span class="name">events</span><span class="punctuation">:</span>
+        <span class="keyword">if</span> <span class="name">event</span><span class="operator">.</span><span class="name">type</span> <span class="operator">==</span> <span class="name">sdl2</span><span class="operator">.</span><span class="name">SDL_QUIT</span><span class="punctuation">:</span>
+            <span class="name">running</span> <span class="operator">=</span> <span class="name builtin pseudo">False</span>
+            <span class="keyword">break</span>
+    <span class="name">window</span><span class="operator">.</span><span class="name">refresh</span><span class="punctuation">()</span>
+</pre>
+<p>то получили бы аналогичный эффект.</p>
+<p>Ну и в конце выполнения приложения нужно отчистить <em>видеопамять</em> <a class="footnote-reference" href="#id3" id="id1">[1]</a>, которую мы инициализировали в начале.</p>
+<pre class="code python literal-block">
+<span class="name">sdl2</span><span class="operator">.</span><span class="name">ext</span><span class="operator">.</span><span class="name">quit</span><span class="punctuation">()</span>
+</pre>
+<p>Только вот незадача. Мы так и не вывели на экран 'Hello, world!' (заголовк не в счёт!). Туториал предлагает сделать это с помощью спрайта. Ну ладно, давайте попробуем! Определим переменную <tt class="docutils literal">RESOURCES</tt></p>
+<pre class="code python literal-block">
+<span class="comment"># &lt;...&gt;</span>
+<span class="keyword namespace">import</span> <span class="name namespace">sdl2.ext</span>
+
+<span class="name">RESOURCES</span> <span class="operator">=</span> <span class="name">sdl2</span><span class="operator">.</span><span class="name">ext</span><span class="operator">.</span><span class="name">Resources</span><span class="punctuation">(</span><span class="name">__file__</span><span class="punctuation">,</span> <span class="literal string">'resources'</span><span class="punctuation">)</span>
+
+<span class="name">sdl2</span><span class="operator">.</span><span class="name">ext</span><span class="operator">.</span><span class="name">init</span><span class="punctuation">()</span>
+<span class="comment"># &lt;...&gt;</span>
+</pre>
+<p>Эта переменная будет отличным помощником в загрузке игровых ресурсов. Так же рядом с файлом main.py нужно создать папку <tt class="docutils literal">resources</tt></p>
+<p>Теперь нам нужно создать фабрику спрайтов:</p>
+<pre class="code python literal-block">
+<span class="comment"># &lt;...&gt;</span>
+<span class="name">window</span><span class="operator">.</span><span class="name">show</span><span class="punctuation">()</span>
+
+<span class="name">sprite_factory</span> <span class="operator">=</span> <span class="name">sdl2</span><span class="operator">.</span><span class="name">ext</span><span class="operator">.</span><span class="name">SpriteFactory</span><span class="punctuation">(</span><span class="name">sdl2</span><span class="operator">.</span><span class="name">ext</span><span class="operator">.</span><span class="name">SOFTWARE</span><span class="punctuation">)</span>
+<span class="comment"># &lt;...&gt;</span>
+</pre>
+<p>загрузить спрайт в память:</p>
+<pre class="code python literal-block">
+<span class="name">hello_sprite</span> <span class="operator">=</span> <span class="name">sprite_factory</span><span class="operator">.</span><span class="name">from_image</span><span class="punctuation">(</span><span class="name">RESOURCES</span><span class="operator">.</span><span class="name">get_path</span><span class="punctuation">(</span><span class="literal string">'hello.png'</span><span class="punctuation">))</span>
+</pre>
+<p>и заставить его рисоваться:</p>
+<pre class="code python literal-block">
+<span class="name">sprite_renderer</span> <span class="operator">=</span> <span class="name">sprite_factory</span><span class="operator">.</span><span class="name">create_sprite_render_system</span><span class="punctuation">(</span><span class="name">window</span><span class="punctuation">)</span>
+<span class="name">sprite_renderer</span><span class="operator">.</span><span class="name">render</span><span class="punctuation">(</span><span class="name">hello_sprite</span><span class="punctuation">)</span>
+</pre>
+<p>Магия... Попробуем разобраться с этим, но уже в следующей статье.</p>
+<p>Полный код</p>
+<pre class="code python literal-block">
+<span class="comment"># -*- coding: utf-8 -*-</span>
+
+<span class="keyword namespace">import</span> <span class="name namespace">sdl2.ext</span>
+
+<span class="name">RESOURCES</span> <span class="operator">=</span> <span class="name">sdl2</span><span class="operator">.</span><span class="name">ext</span><span class="operator">.</span><span class="name">Resources</span><span class="punctuation">(</span><span class="name">__file__</span><span class="punctuation">,</span> <span class="literal string">'resources'</span><span class="punctuation">)</span>
+
+<span class="name">sdl2</span><span class="operator">.</span><span class="name">ext</span><span class="operator">.</span><span class="name">init</span><span class="punctuation">()</span>
+<span class="name">window</span> <span class="operator">=</span> <span class="name">sdl2</span><span class="operator">.</span><span class="name">ext</span><span class="operator">.</span><span class="name">Window</span><span class="punctuation">(</span><span class="literal string">'Hello, world!'</span><span class="punctuation">,</span> <span class="name">size</span><span class="operator">=</span><span class="punctuation">(</span><span class="literal number integer">640</span><span class="punctuation">,</span> <span class="literal number integer">480</span><span class="punctuation">))</span>
+<span class="name">window</span><span class="operator">.</span><span class="name">show</span><span class="punctuation">()</span>
+
+<span class="name">sprite_factory</span> <span class="operator">=</span> <span class="name">sdl2</span><span class="operator">.</span><span class="name">ext</span><span class="operator">.</span><span class="name">SpriteFactory</span><span class="punctuation">(</span><span class="name">sdl2</span><span class="operator">.</span><span class="name">ext</span><span class="operator">.</span><span class="name">SOFTWARE</span><span class="punctuation">)</span>
+<span class="name">hello_sprite</span> <span class="operator">=</span> <span class="name">sprite_factory</span><span class="operator">.</span><span class="name">from_image</span><span class="punctuation">(</span><span class="name">RESOURCES</span><span class="operator">.</span><span class="name">get_path</span><span class="punctuation">(</span><span class="literal string">'hello.png'</span><span class="punctuation">))</span>
+
+<span class="name">sprite_renderer</span> <span class="operator">=</span> <span class="name">sprite_factory</span><span class="operator">.</span><span class="name">create_sprite_render_system</span><span class="punctuation">(</span><span class="name">window</span><span class="punctuation">)</span>
+<span class="name">sprite_renderer</span><span class="operator">.</span><span class="name">render</span><span class="punctuation">(</span><span class="name">hello_sprite</span><span class="punctuation">)</span>
+
+<span class="name">processor</span> <span class="operator">=</span> <span class="name">sdl2</span><span class="operator">.</span><span class="name">ext</span><span class="operator">.</span><span class="name">TestEventProcessor</span><span class="punctuation">()</span>
+<span class="name">processor</span><span class="operator">.</span><span class="name">run</span><span class="punctuation">(</span><span class="name">window</span><span class="punctuation">)</span>
+
+<span class="name">sdl2</span><span class="operator">.</span><span class="name">ext</span><span class="operator">.</span><span class="name">quit</span><span class="punctuation">()</span>
+</pre>
+<div class="section" id="id2">
+<h1>Сноски</h1>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Не знаю, как более правильно перевести video internals</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+]]></content:encoded>
+    </item>
     <item>
       <title>Hello, world!</title>
       <link>http://gomzik.github.io/blog/2014/07/22/hello,-world!</link>

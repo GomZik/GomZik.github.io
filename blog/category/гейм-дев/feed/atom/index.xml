@@ -1,30 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0"
-     xmlns:content="http://purl.org/rss/1.0/modules/content/"
-     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
-     xmlns:atom="http://www.w3.org/2005/Atom"
-     xmlns:dc="http://purl.org/dc/elements/1.1/"
-     xmlns:wfw="http://wellformedweb.org/CommentAPI/"
-     >
-  <channel>
-    <title>По(ш)кодим?</title>
-    <link>http://gomzik.github.io/blog</link>
-    <description>Блог Алексея Гомзы aka GomZik</description>
-    <pubDate>Thu, 31 Jul 2014 19:11:42 GMT</pubDate>
-    <generator>Blogofile</generator>
-    <sy:updatePeriod>hourly</sy:updatePeriod>
-    <sy:updateFrequency>1</sy:updateFrequency>
-    <item>
-      <title>Пробуем PySDL2 часть 1</title>
-      <link>http://gomzik.github.io/blog/2014/07/24/пробуем-pysdl2-часть-1</link>
-      <pubDate>Thu, 24 Jul 2014 22:10:00 FET</pubDate>
-      <category><![CDATA[python]]></category>
-      <category><![CDATA[PySDL2]]></category>
-      <category><![CDATA[гейм-дев]]></category>
-      <category><![CDATA[pygame]]></category>
-      <guid isPermaLink="true">http://gomzik.github.io/blog/2014/07/24/пробуем-pysdl2-часть-1</guid>
-      <description>Пробуем PySDL2 часть 1</description>
-      <content:encoded><![CDATA[<div class="document">
+<feed
+  xmlns="http://www.w3.org/2005/Atom"
+  xmlns:thr="http://purl.org/syndication/thread/1.0"
+  xml:lang="en"
+   >
+  <title type="text">По(ш)кодим?</title>
+  <subtitle type="text">Блог Алексея Гомзы aka GomZik</subtitle>
+
+  <updated>2014-07-31T19:11:42Z</updated>
+  <generator uri="http://blogofile.com/">Blogofile</generator>
+
+  <link rel="alternate" type="text/html" href="http://gomzik.github.io/blog" />
+  <id>http://gomzik.github.io/blog/feed/atom/</id>
+  <link rel="self" type="application/atom+xml" href="http://gomzik.github.io/blog/feed/atom/" />
+  <entry>
+    <author>
+      <name></name>
+      <uri>http://gomzik.github.io/blog</uri>
+    </author>
+    <title type="html"><![CDATA[Пробуем PySDL2 часть 1]]></title>
+    <link rel="alternate" type="text/html" href="http://gomzik.github.io/blog/2014/07/24/пробуем-pysdl2-часть-1" />
+    <id>http://gomzik.github.io/blog/2014/07/24/пробуем-pysdl2-часть-1</id>
+    <updated>2014-07-24T22:10:00Z</updated>
+    <published>2014-07-24T22:10:00Z</published>
+    <category scheme="http://gomzik.github.io/blog" term="python" />
+    <category scheme="http://gomzik.github.io/blog" term="PySDL2" />
+    <category scheme="http://gomzik.github.io/blog" term="гейм-дев" />
+    <category scheme="http://gomzik.github.io/blog" term="pygame" />
+    <summary type="html"><![CDATA[Пробуем PySDL2 часть 1]]></summary>
+    <content type="html" xml:base="http://gomzik.github.io/blog/2014/07/24/пробуем-pysdl2-часть-1"><![CDATA[<div class="document">
 <p>В очередной раз зачесались руки поближе познакомиться с гейм-девом. Открыл <a class="reference external" href="http://pygame.org/">сайт pygame</a> и увидел новость про то, что <a class="reference external" href="http://http://pysdl2.readthedocs.org/en/latest/">PySDL 0.9.3</a> released. Стало любопытно, что за зверь такой.</p>
 <p>Поискав в интернете, не нашел никаких статей на русском, на английском тоже как-то не особо много. В общем, кроме как читать документацию, ничего не остается.</p>
 <p>К сожалению, мой английский достаточно слабый, поэтому, если я что-то не так понял из документации - поправьте.</p>
@@ -158,25 +162,6 @@
 </table>
 </div>
 </div>
-]]></content:encoded>
-    </item>
-    <item>
-      <title>Hello, world!</title>
-      <link>http://gomzik.github.io/blog/2014/07/22/hello,-world!</link>
-      <pubDate>Tue, 22 Jul 2014 01:29:00 FET</pubDate>
-      <category><![CDATA[blog]]></category>
-      <category><![CDATA[python]]></category>
-      <category><![CDATA[hello]]></category>
-      <guid isPermaLink="true">http://gomzik.github.io/blog/2014/07/22/hello,-world!</guid>
-      <description>Hello, world!</description>
-      <content:encoded><![CDATA[<div class="document">
-<p>Всем привет! Стартую свой блог на основе github pages. Собираюсь писать сюда посты, связанные с программированием. Планирую писать сюда про вещи, с которыми пытаюсь разобраться прямо здесь и сейчас. Может быть кому-то будет полезно.</p>
-<p>Сам я являюсь web-разработчиком, пишу приемущественно на Python. Интересуюсь гейм-девом. Профиль на github у меня, к сожалению, на текущий момент весьма унылый, однако я думаю, что смогу это исправить.</p>
-<p>Для блога был использован генератор статических страниц <a class="reference external" href="http://blogofile.com/">blogofile</a>, т.к. python мне как-то ближе.</p>
-<p>Надеюсь все, что я тут напишу в последствии, будет кому-то полезным.</p>
-<p>Стили для данного блога полностью еще не доделаны, но постепенно буду допиливать.</p>
-</div>
-]]></content:encoded>
-    </item>
-  </channel>
-</rss>
+]]></content>
+  </entry>
+</feed>
